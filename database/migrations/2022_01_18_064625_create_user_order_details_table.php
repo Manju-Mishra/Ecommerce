@@ -19,9 +19,11 @@ class CreateUserOrderDetailsTable extends Migration
             $table->integer('product_id');
             $table->decimal('price');
             $table->integer('quantity');
+            $table->string('usedcoupon');
             $table->integer('total');
             $table->string('productname');
             $table->string('payment_mode');
+            $table->string('status');
             $table->timestamps();
         });
     }

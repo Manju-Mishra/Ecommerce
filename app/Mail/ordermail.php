@@ -36,5 +36,6 @@ class ordermail extends Mailable
                      'quantity'=>$data['quantity'],
                      'total'=>$data['total'],
         ]);
+
     }
 }

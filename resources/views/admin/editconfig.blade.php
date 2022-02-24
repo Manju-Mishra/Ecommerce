@@ -22,6 +22,13 @@
             <form action="/editconfig" method="post">
                 @csrf()
                 <div class="form-group"><br>
+                    <label>Title</label>
+                    <input type="text" name="title" class="form-control container" value="{{$data->title}}">
+                    @if($errors->has('title'))
+                    <label class="text-danger  font-weight-bold col-10 container">{{$errors->first('title')}}</label>
+                    @endif
+                </div>
+                <div class="form-group"><br>
                     <label>Email</label>
                     <input type="text" name="email" class="form-control container" value="{{$data->email}}">
                     @if($errors->has('email'))

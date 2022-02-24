@@ -18,9 +18,10 @@ class CheckAuth
     public function handle(Request $request, Closure $next)
     {
         
-        if (Auth::user() && Auth::user()->role_id == 2){
+        if (Auth::user() && Auth::user()->role_id == 2 || Auth::user()->role_id == 1){
             return $next($request);
         }
         return back()->with('err','You can not access this Page.');
+       
     }
 }

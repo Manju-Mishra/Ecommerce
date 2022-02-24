@@ -12,7 +12,7 @@ use App\Http\Controllers\CMSController;
 use App\Http\Middleware\CheckAuth;
 use App\Http\Controllers\UserApicontroller;
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
@@ -69,6 +69,7 @@ Route::get('/edituser/{id}',[Usercontroller::class,'edit']);
 Route::post('/updateuser',[Usercontroller::class,'updateuser']);
 
 
+
 //For Contact Us
 Route::get('/contacts',[Contactcontroller::class,'index']);
 
@@ -91,8 +92,12 @@ Route::get('/editcms/{id}',[CMSController::class,'editcms']);
 Route::post('/updatecms',[CMSController::class,'updatecms']);
 
 //for Order Management
-Route::get('/orders',[UserApicontroller::class,'showuserdetails']);
-
+Route::get('/orders',[UserApicontroller::class,'orderdetails']);
+Route::get('/userdetails',[UserApicontroller::class,'userdetails']);
 //For show reports
 Route::get('/piechart',[UserApicontroller::class,'index']);
+Route::get('/couponchart',[UserApicontroller::class,'couponchart']);
+Route::get('/saleschart',[UserApicontroller::class,'saleschart']);
+Route::get('/editorderstatus/{id}',[UserApicontroller::class,'editorderstatus']);
+Route::post('/updatestatus',[UserApicontroller::class,'updatestatus']);
 });

@@ -28,6 +28,7 @@
             @endif
             <br>
             <table class="table mt-4">
+                <thead>
                 <tr class="">
                     <th>S.no</th>
                     <th>Product Name</th>
@@ -39,6 +40,8 @@
                     <th>Image</th>
                     <th>Action</th>
                 </tr>
+                </thead>
+                <tbody>
                 @php
                 $sn=1;
                 @endphp
@@ -56,13 +59,42 @@
                      </td>
                     <td>
                         <a href="/editproduct/{{$q->id}}" class="fa fa-edit text-warning "style="font-size:30px;"></a>
-                        <a href="/delproduct/{{$q->id}}" class="fa fa-trash"style="font-size:30px;"></a>
+                        <!-- <a href="/delproduct/{{$q->id}}" class="fa fa-trash"style="font-size:30px;"></a> -->
+
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
+                        <i class="fa fa-trash"></i>
+                    </button>
                     </td>
                 </tr>
 
 
-                @endforeach
+               
+
+                   <!-- For Delete Pop_up -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body bg-light" align=center>
+                            <h4><i class=" fa fa-exclamation-circle"></i></h4>
+                            <h6>Are you sure you want ot delete !!??</h6>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger col-3" data-dismiss="modal">No</button>
+                            <a href="/delproduct/{{$q->id}}" class="btn btn-success col-3">
+                                Yes</a>
+
+                                @endforeach
+                    </tbody>
             </table><br>
+            <div class="d-flex justify-content-center">
+                {!! $data->links() !!}
+            </div>
 
 
         </div>

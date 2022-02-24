@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\coupon;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class Couponcontroller extends Controller
 {
@@ -92,16 +93,19 @@ class Couponcontroller extends Controller
         return $data;
     }
 
+    
     public function applycoupon(Request $req)
     {
         $coupon=coupon::where('coupon_code',$req->coupon_code)->first();
         if(!$coupon)
         {
             return response()->json(['msg'=>'Invalid Coupon code']);
+            
         }
-    
-        return response()->json(['msg'=>'Coupon Applied successfully',"coupon_value"=>$coupon->coupon_value]);
-        // $data=coupon::all();
+        else{
+            DB::select("call Discount(".$coupon->id.")");
+        return response()->json(['msg'=>'Coupon Applied successfully',"coupon_value"=>$coupon->coupon_value,"coupon_code"=>$coupon->coupon_code]); 
+        }
       
     }
 }

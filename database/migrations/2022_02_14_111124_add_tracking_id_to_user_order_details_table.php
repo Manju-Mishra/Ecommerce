@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateConfigurationsTable extends Migration
+class AddTrackingIdToUserOrderDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateConfigurationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('configurations', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('email')->unique();
-            $table->timestamps();
+        Schema::table('user_order_details', function (Blueprint $table) {
+            $table->string('tracking_id')->after('status');
         });
     }
 
@@ -28,6 +25,8 @@ class CreateConfigurationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('configurations');
+        Schema::table('user_order_details', function (Blueprint $table) {
+            //
+        });
     }
 }

@@ -38,6 +38,7 @@ class Adminregister extends Mailable
                     'firstname'=>$data['firstname'],
                     'email' => $data['email']
         ]);
+       
     
     }
 }

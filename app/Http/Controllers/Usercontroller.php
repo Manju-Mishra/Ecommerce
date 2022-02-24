@@ -12,14 +12,14 @@ class Usercontroller extends Controller
    
     public function index()
     {
-        $data=user::all();
+        $data=user::paginate(4);
         return view('admin.showuser',compact('data'));
     }
 
   
     public function create()
     {
-           $roletype=role::all();
+         $roletype=role::all();
         return view('admin.adduser',compact('roletype'));
     }
 
@@ -100,7 +100,9 @@ class Usercontroller extends Controller
    
     public function destroy($id)
     {
-        $del=User::find($id)->delete();
+        // $del=User::find($id)->delete();
+        $del=User::destroy($id);
+
         if($del)
         {
             return back()->with('error','Data removed !!!');

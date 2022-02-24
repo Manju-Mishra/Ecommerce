@@ -17,7 +17,7 @@ class Categorycontroller extends Controller
 
     public function showcategory()
     {
-        $data=category::all();
+        $data=category::paginate(2);
         return view('admin.showcategory',compact('data'));
     }
      
@@ -103,7 +103,7 @@ class Categorycontroller extends Controller
     //For banner
     public function showbanner()
     {
-        $data=banner::all();
+        $data=banner::paginate(2);
         return view('admin.showbanner',compact('data'));
     }
 

@@ -36,34 +36,33 @@
                     <td>{{$q->coupon_value}}</td>
                     <td>
                         <a href="/editcoupon/{{$q->id}}" class="btn btn-secondary">Edit</a>
-                        <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
                             Delete
-                        </button> -->
-                        <a href="/delcoupon/{{$q->id}}" class="btn btn-success col-6">Delete</a>
+                        </button>
+                        <!-- <a href="/delcoupon/{{$q->id}}" class="btn btn-success col-6">Delete</a> -->
                     </td>
                 </tr>
 
+
                 <!-- For Delete Pop_up -->
-             <!--    <div class="modal fade" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title text-center" id="exampleModalLongTitle">Confirmation</h5>
+                                <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body bg-light" align=center>
-                                <h2>Are you sure <i class="text-danger fa fa-exclamation-triangle"></i></h2>
+                                <h4><i class=" fa fa-exclamation-circle"></i></h4>
+                                <h6>Are you sure you want ot delete !!??</h6>
                             </div>
                             <div class="modal-footer">
-                                <input type="hidden" name="id" value="{{$q->id}}">
                                 <button type="button" class="btn btn-danger col-3" data-dismiss="modal">No</button>
                                 <a href="/delcoupon/{{$q->id}}" class="btn btn-success col-3">
-                                    Yes</a> -->
+                                    Yes</a>
                                 @endforeach
-
-
             </table><br>
 
             <div class="d-flex justify-content-center">

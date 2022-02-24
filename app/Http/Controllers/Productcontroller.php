@@ -10,7 +10,7 @@ class Productcontroller extends Controller
 {
     public function product()
    {
-    $data=product::all();
+    $data=product::paginate(5);
     return view('admin.showproduct',compact('data'));
 
    }

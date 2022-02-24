@@ -10,7 +10,7 @@ class CMSController extends Controller
 {
     public function showcms()
     {
-        $cms=cms::all();
+        $cms=cms::paginate(1);
         return view('admin.showcms',compact('cms'));
     }
 

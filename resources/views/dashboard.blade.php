@@ -202,12 +202,34 @@
                 </p>
               </a>
             </li>
+      
+
             <li class="nav-item">
+              <a href="" class="nav-link">
+                <i class="nav-icon fa fa-shopping-cart text-primary"></i>
+                <p>
+                  Order Manage
+                </p>
+                <i class="right fas fa-angle-right"></i>
+              </a>
+              <ul class="nav nav-treeview">
+              <li class="nav-item">
               <a href="orders" class="nav-link">
                 <i class="nav-icon fa fa-shopping-bag text-info font-weight-bold"></i>
                 <span>Order Details
                 </span>
               </a>
+            </li>
+                <li class="nav-item">
+                  <a href="/userdetails" class="nav-link">
+                    <i class="far fa-user nav-icon  font-weight-bold text-success"></i>
+                    <p>
+                     Billing Details
+                    </p>
+                  </a>
+                </li>
+               
+              </ul>
             </li>
             <li class="nav-item">
               <a href="" class="nav-link">
@@ -220,9 +242,25 @@
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="/piechart" class="nav-link">
-                    <i class="far fa-user nav-icon  font-weight-bold" style="color:indianred"></i>
+                    <i class="far fa-user nav-icon  font-weight-bold text-primary"></i>
                     <p>
                       Customers
+                    </p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/couponchart" class="nav-link">
+                    <i class="far fa-gift nav-icon  font-weight-bold text-success"></i>
+                    <p>
+                      Coupons
+                    </p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/saleschart" class="nav-link">
+                    <i class="far fa-th nav-icon  font-weight-bold text-danger"></i>
+                    <p>
+                      Sales 
                     </p>
                   </a>
                 </li>

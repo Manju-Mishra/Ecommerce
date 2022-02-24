@@ -23,7 +23,9 @@ Route::group(['middleware' => 'api'], function ($router) {
     Route::post('/refresh', [JWTController::class, 'refresh']);  
     Route::get('/user-profile', [JWTController::class, 'userProfile']); 
     Route::post('/changepassword', [JWTController::class, 'changepassword']); 
-    Route::post('/changeprofile', [JWTController::class, 'changeprofile']); 
+    Route::post('/changeprofile', [JWTController::class, 'changeprofile']);
+    //For track order 
+    Route::get('/search/{id}/{email}',[UserApicontroller::class,'search']);
 });
 
 
@@ -59,3 +61,4 @@ Route::post('/userdetails',[UserApicontroller::class,'adduserdetails']);
 
 //For user order details
 Route::post('/userorderdetails',[UserApicontroller::class,'adduserorder']);
+

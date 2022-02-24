@@ -14,8 +14,14 @@
                 <a href="/showuser" class="btn btn-success text-light font-weight-bold ml-4 col-4 mt-4">Back</a><br>
                 </div><br>
             @if(Session::has('error'))
-            <div class="alert alert-success font-weight-bold col-10 container ">{{Session::get('error')}}</div>
+            <!-- <div class="alert alert-success font-weight-bold col-10 container ">{{Session::get('error')}}</div>
+           -->
+           
+           <script>
+              swal("{{session('error')}}")
+           </script>
             @endif<br>
+        
             <form action="/updateuser" method="post">
                 @csrf()
                 <div class="form-group">
@@ -42,7 +48,7 @@
                 <div class="form-group">
                 <label>Role</label>
                 <select name="role" class="form-control">
-                    <option value="">{{$udata->role_id}}</option>
+                    <option value="5">{{$udata->role_id}}</option>
                     @foreach($roletype as $r)
                    <option value="{{$r->id}}">{{$r->rolename}}</option>
                    @endforeach
@@ -67,5 +73,6 @@
           </div>
         </div><br>
    @endsection 
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 </html>

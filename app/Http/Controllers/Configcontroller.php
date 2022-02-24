@@ -13,7 +13,7 @@ class Configcontroller extends Controller
     }
     public function showconfig()
     {
-        $data=configuration::all();
+        $data=configuration::paginate(2);
         return view('admin.showconfig',compact('data'));
     }
 
@@ -21,11 +21,13 @@ class Configcontroller extends Controller
     {
         $val=$req->validate([
          'email'=>'required|email|unique:configurations',
+         'title'=>'required',
         ]);
         if($val)
         {
             $data=new configuration();
             $data->email=$req->email;
+            $data->title=$req->title;
             if($data->save())
             {
                 return back()->with('error','Data added Successfully');
@@ -46,11 +48,13 @@ class Configcontroller extends Controller
     {
         $val=$req->validate([
          'email'=>'required|email',
+         'title'=>'required',
         ]);
         if($val)
         {
            $data=configuration::where('id',$req->id)->update([
               'email'=>$req->email,
+              'title'=>$req->title,
            ]);
             if($data)
             {
